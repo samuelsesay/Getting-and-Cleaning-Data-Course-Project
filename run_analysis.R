@@ -1,39 +1,38 @@
 ## packages to load
 library(reshape2)
-getwd()
-?getwd
+
 setwd("/Users/mac/Desktop/UCI HAR Dataset")
 list("/Users/mac/Desktop/UCI HAR Dataset")
 
 # read in data 
-features <- read.table("./Users/mac/Desktop/UCI HAR Dataset/features.txt")
-activity <- read.table("./Users/mac/Desktop/UCI HAR Dataset/activity_labels.txt")
+features <- read.table("/Users/mac/Desktop/UCI HAR Dataset/features.txt")
+activity <- read.table("/Users/mac/Desktop/UCI HAR Dataset/activity_labels.txt")
 
 
 # read train data
 
 # features data
-train <- read.table("./Users/mac/Desktop/UCI HAR Dataset/train/X_train.txt")
+train <- read.table("/Users/mac/Desktop/UCI HAR Dataset/train/X_train.txt")
 
 ## For Step 4
 colnames(train) <- features$V2 
 
 # activity labels
-y_train <- read.table("./Users/mac/Desktop/UCI HAR Dataset/train/y_train.txt")
+y_train <- read.table("/Users/mac/Desktop/UCI HAR Dataset/train/y_train.txt")
 train$activity <- y_train$V1
 
 # subjects
-subject_train <- read.table("./Users/mac/Desktop/UCI HAR Dataset/subject_train.txt") 
+subject_train <- read.table("/Users/mac/Desktop/UCI HAR Dataset/subject_train.txt") 
 train$subject <- factor(subject_train$V1)
 
 # read  test data 
-test <- read.table("./Users/mac/Desktop/UCI HAR Dataset/X_test.txt")
+test <- read.table("/Users/mac/Desktop/UCI HAR Dataset/X_test.txt")
 colnames(test) <- features$V2
 
-y_test <- read.table("./UCI HAR Dataset/test/y_test.txt") 
+y_test <- read.table("/UCI HAR Dataset/test/y_test.txt") 
 test$activity <- y_test$V1
 
-subject_test <- read.table("./UCI HAR Dataset/test/subject_test.txt")
+subject_test <- read.table("/UCI HAR Dataset/test/subject_test.txt")
 test$subject <- factor(subject_test$V1)
 
 ## STEP 1
